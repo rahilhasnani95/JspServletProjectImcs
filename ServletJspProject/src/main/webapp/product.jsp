@@ -10,6 +10,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+.btn {
+top: 10px;
+width: 15%;
+}
+</style>
 </head>
 <body>
 	<%
@@ -60,16 +66,17 @@
 					<input type="hidden" name="itemprice" value="${i.itemprice}">
 					<input type="hidden" name="itemname" value="${i.itemname}">															
 					<input type="number" name="qty" placeholder="Enter quantity" required="required" min="1" max="${i.itemquantity}">
-					<input type="submit" value="Add to Cart">					
+					<input type="submit" class="btn btn-outline-info" value="Add to Cart" style="width: 60%;">					
 				</form>
 				</td>		
 			</tr>
 			
 		</c:forEach>
 	</table>
-
+<br>
 	<form action="ViewCartServlet" method="post">
-		<input class="btn" type="submit" value="View Cart">
-	</form>
+		<input class="btn btn-info" type="submit" value="View Cart">
+<!-- 		<i class="fa fa-shopping-cart w3-margin-right" style="size: 30%;"></i>
+ -->	</form>
 </body>
 </html>

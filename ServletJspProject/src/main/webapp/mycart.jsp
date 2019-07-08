@@ -27,11 +27,18 @@ color: "red"
 		response.sendRedirect("index.jsp");
 	}
 %>
-
 <c:if test="${not empty deletemessage}">
     <script>
     window.addEventListener("load",function(){
          confirm("${deletemessage}");
+    })
+    </script>
+</c:if>
+
+<c:if test="${not empty itemsoldoutmessage}">
+    <script>
+    window.addEventListener("load",function(){
+         confirm("${itemsoldoutmessage}");
     })
     </script>
 </c:if>
@@ -51,7 +58,7 @@ color: "red"
     })
     </script>
 </c:if>
-
+<br>
 <h2>My Cart</h2>
 	<table id="tb" border="1" cellpadding="10">
 		<tr>
@@ -59,6 +66,7 @@ color: "red"
 			<th>Item Name</th>
 			<th>Quantity in Cart</th>
 			<th>Total Price of this Item</th>
+			<th>Delete Item</th>
 		</tr>
 		
 		<c:set var="finaltotal" value="${0}"/>
@@ -74,7 +82,7 @@ color: "red"
 		 		<form action="DeleteServlet" method="post">
 					<input type="hidden" name="itemid" value="${i.itemid}">
 					<input type="hidden" name="itemname" value="${i.itemname}">	
-					<input type="submit" value="Remove Item">					
+					<input type="submit" class="btn btn-outline-danger" value="Remove Item" style="width: 100%;" >					
 				</form>
 				</td>	
 					

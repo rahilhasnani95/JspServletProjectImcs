@@ -11,6 +11,11 @@ public class CheckoutService {
 		checkoutdao = new CheckoutDAO();
 	}
 	
+	public int checkItemsinCartButNotinProducts(String username)
+	{
+		return checkoutdao.checkAnyItemInCartNotInStock(username);
+	}
+	
 	public int checkout1(String username)
 	{
 		return checkoutdao.updateProducts(username);
