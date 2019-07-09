@@ -14,14 +14,14 @@ public class DatabaseConnection {
 	String password= "Rahil1234";
 	//String sql = "select * from users where username = ? and password = ?";
 	
-	PreparedStatement prepst = null;
-	Statement st = null;
-	Statement st2 = null;
-	Statement st3 = null;
-	ResultSet rs = null;
-	ResultSet rs2 = null;
-	ResultSet rs3 = null;
-	Connection con = null;
+	public PreparedStatement prepst = null;
+	public Statement st = null;
+	public Statement st2 = null;
+	public Statement st3 = null;
+	public ResultSet rs = null;
+	public ResultSet rs2 = null;
+	public ResultSet rs3 = null;
+	public Connection con = null;
 	
 	public void connect_db()
 	{

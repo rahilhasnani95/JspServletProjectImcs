@@ -28,16 +28,14 @@ public class UserServlet extends HttpServlet{
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
-			
 			response.sendRedirect("welcomeUser.jsp");		
 		}
 		else
 		{
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
-			
-			response.sendRedirect("invalidUser.jsp");		
-			
+			request.setAttribute("invalidcredentialsmsg", "Invalid Credentials! ");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+		
 		}
 		
 		

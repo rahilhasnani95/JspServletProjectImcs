@@ -15,7 +15,7 @@
 		}
 	%>
 	
-<h1>Sorry,  No Products Right Now</h1>
+<h1>Sorry,  No Products Right Now! Shop some other time</h1>
 
 <a href="welcomeUser.jsp">Go To Home</a>
 </body>

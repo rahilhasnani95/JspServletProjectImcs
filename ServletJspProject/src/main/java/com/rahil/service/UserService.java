@@ -18,4 +18,9 @@ public class UserService {
 		return userdao.checkUser(username, password);
 	}
 	
+	public int registerUser(String username, String password)
+	{
+		return userdao.registeringUser(username, password);
+	}
+	
 }

@@ -1,15 +1,19 @@
 package com.rahil.dao;
 
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.ws.Response;
+
+import com.mysql.cj.jdbc.Blob;
 import com.rahil.model.ProductBean;
 
 public class ProductDAO {
 
 	DatabaseConnection db = new DatabaseConnection();
 	//ProductBean productbean = new ProductBean();
-	
+		
 	public List<ProductBean> getProducts()
 	{
 		List<ProductBean> list = new ArrayList<ProductBean>();

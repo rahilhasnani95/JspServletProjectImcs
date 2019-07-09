@@ -9,13 +9,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style type="text/css">
-.btn {
-top: 10px;
-width: 15%;
-background-color: "green";
-color: "red"
-}
 </style>
 </head>
 <body>
@@ -59,47 +54,58 @@ color: "red"
     </script>
 </c:if>
 <br>
-<h2>My Cart</h2>
-	<table id="tb" border="1" cellpadding="10">
-		<tr>
-			<th>Item Id</th>
-			<th>Item Name</th>
-			<th>Quantity in Cart</th>
-			<th>Total Price of this Item</th>
-			<th>Delete Item</th>
-		</tr>
-		
-		<c:set var="finaltotal" value="${0}"/>
-		<c:forEach items="${cartlist}" var="i">
+
+<div style="margin-left: 20px;">
+	
+	<form action="ViewCartServlet" method="post">
+			<input class="btn btn-info btn-lg" type="submit" value="Refresh Cart">
+		</form>
+
+	<h2>My Cart </h2>
+		<table id="tb" border="1" cellpadding="10">
 			<tr>
-				<td><c:out value="${i.itemid}" /></td>
-				<td><c:out value="${i.itemname}" /></td>
-				<td><c:out value="${i.itemquantity}" /></td>
-				<td><c:out value="${i.totalprice}" /></td>	
-				<c:set var="finaltotal" value="${finaltotal + i.totalprice}" />
-				
-				 <td>
-		 		<form action="DeleteServlet" method="post">
-					<input type="hidden" name="itemid" value="${i.itemid}">
-					<input type="hidden" name="itemname" value="${i.itemname}">	
-					<input type="submit" class="btn btn-outline-danger" value="Remove Item" style="width: 100%;" >					
-				</form>
-				</td>	
-					
+				<th>Item Id</th>
+				<th>Item Name</th>
+				<th>Quantity in Cart</th>
+				<th>Total Price of this Item</th>
+				<th>Delete Item</th>
 			</tr>
 			
-		</c:forEach>
-		
-	</table>
-<h3> Final Total : 	${finaltotal} </h3>
-<br>
-<a href="product.jsp"><input type="button" class="btn" value="Add More Products"></a> 
-<br><br>
+			<c:set var="finaltotal" value="${0}"/>
+			<c:forEach items="${cartlist}" var="i">
+				<tr>
+					<td><c:out value="${i.itemid}" /></td>
+					<td><c:out value="${i.itemname}" /></td>
+					<td><c:out value="${i.itemquantity}" /></td>
+					<td><c:out value="${i.totalprice}" /></td>	
+					<c:set var="finaltotal" value="${finaltotal + i.totalprice}" />
+					
+					 <td>
+			 		<form action="DeleteServlet" method="post">
+						<input type="hidden" name="itemid" value="${i.itemid}">
+						<input type="hidden" name="itemname" value="${i.itemname}">	
+						<input type="submit" class="btn btn-outline-danger btn-sm" value="Remove Item" style="width: 100%;" >					
+					</form>
+					</td>	
+						
+				</tr>
+				
+			</c:forEach>
+			
+		</table>
+		<br>
+	<h4> Final Total : $ ${finaltotal} </h4><br>
 
-	<form action="CheckoutServlet" method="post">
-		<input type="hidden" name="finaltotalbill" value="${finaltotal}">
-		<input class="btn" type="submit" value="CheckOut">
-	</form>
+ 	<div style="display: inline-flex;" >
+		<form action="ProductServlet" method="post">
+			<input type="submit" class="btn btn-info btn-lg" value="Continue Shopping">
+		</form>
 
+		<form action="CheckoutServlet" method="post" style="margin-left: 20px;">
+			<input type="hidden" name="finaltotalbill" value="${finaltotal}">
+			<input class="btn btn-dark btn-lg" type="submit" value="CheckOut">
+		</form>
+	</div>
+</div>
 </body>
 </html>

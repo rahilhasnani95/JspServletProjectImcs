@@ -6,9 +6,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<!-- <style type="text/css">
+.bg, html{
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body style="text-align: center;">
+<body class="bg" style="text-align: center; margin-top: 50px;" background="images/LandingStock_image_26.jpg">
 
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -18,15 +26,16 @@
 		}
 	%>
 
-<h1>Welcome, ${username} </h1>
-	
+<h1 style="font-family: cursive;">Welcome, ${username} </h1>
+	<br>
+	<form action="ProductServlet" method="post">
+		<input type="submit" class="btn btn-primary btn-lg" value="See Our Products">
+	</form>
+	<br>
 	<form action="Logout" method="post">
 		<input type="submit" class="btn btn-danger btn-lg" value="Logout">
 	</form>
-	<br>
-	<form action="ProductServlet" method="post">
-		<input type="submit" class="btn btn-primary btn-lg" value="See Products">
-	</form>
+	
 	
 
 </body>
