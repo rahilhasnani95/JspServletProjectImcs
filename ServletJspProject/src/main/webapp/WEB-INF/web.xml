@@ -3,7 +3,17 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	
+	<!-- <servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>AdminServlet</display-name>
+		<description></description>
+		<servlet-class>com.rahil.servlet.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/AdminServlet</url-pattern>
+	</servlet-mapping>
+	 -->
 	<!-- <servlet>
 		<servlet-name>CheckoutServlet</servlet-name>
 		<display-name>CheckoutServlet</display-name>

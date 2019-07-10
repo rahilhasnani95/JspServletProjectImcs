@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.rahil.service.DeleteService;
 
@@ -27,9 +28,10 @@ public class DeleteServlet extends HttpServlet {
 		request.setAttribute("itemid", itemid);
 		request.setAttribute("itemname", itemname); 
 		request.setAttribute("deletemessage","Deleted " + itemname + " from your cart");
-
-		 RequestDispatcher rd = request.getRequestDispatcher("mycart.jsp");
-		 rd.forward(request, response);
+		
+		  RequestDispatcher rd = request.getRequestDispatcher("ViewCartServlet");
+		  rd.forward(request, response);
+		 
 		
 	}
 

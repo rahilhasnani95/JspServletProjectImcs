@@ -14,11 +14,24 @@ public class ProductService {
 		productdao = new ProductDAO();
 	}
 	
-	
 	public List<ProductBean> getprod()
 	{
 		return productdao.getProducts();
 	}
 	
+	public List<ProductBean> getAllprodforadmin()
+	{
+		return productdao.getAllProductsforAdmin();
+	}
+	
+	public void updateQuantityofProducts(int itemid, int quantity)
+	{
+		productdao.updateQuantityOfProductAdmin(itemid, quantity);
+	}
+
+	public void addNewProduct(String itemname, int itemprice, int itemquantity)
+	{
+		productdao.updateQuantityOfProductAdmin(itemname, itemprice, itemquantity);
+	}
 	
 }

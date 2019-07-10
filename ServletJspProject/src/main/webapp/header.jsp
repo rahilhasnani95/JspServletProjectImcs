@@ -14,9 +14,9 @@
 	<div>
 		<form action="Logout" method="post">
 			<ul>
-				<li class="welcome"><a href="welcomeUser.jsp"><input type="button" class="btn btn-info btn-lg" value="Back to Home"></a></li>
+				<li class="welcome"><a href="welcomeUser.jsp"><input type="button" class="btn btn-outline-info btn-lg" value="Back to Home"></a></li>
 				<li class="welcome">Welcome, ${username}</li>
-				<li><input type="submit" class="btn btn-danger btn-lg" value="Logout"> </li>
+				<li><input type="submit" class="btn btn-outline-danger btn-lg" value="Logout"> </li>
 				
 			</ul>
 		</form>

@@ -35,7 +35,7 @@ public class CheckoutServlet extends HttpServlet {
 			int rowsreturnedfromdeletefromcart = checkoutservice.checkout2(username);
 			
 			if(rowsreturnedfromdeletefromcart  >=1 && rowsreturnedfromupdateproducts >=1)
-			{
+			{//change here
 				int finalbill = Integer.parseInt(request.getParameter("finaltotalbill"));
 	
 				request.setAttribute("finalbillmessage","Your Final Amount Bill was : " + finalbill + " ! Thank you for Shopping");

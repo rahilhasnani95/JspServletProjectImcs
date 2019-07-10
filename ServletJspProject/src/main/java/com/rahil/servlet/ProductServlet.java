@@ -28,9 +28,25 @@ public class ProductServlet extends HttpServlet {
 		else
 		{
 			request.getSession().setAttribute("productlist", productlist);
-			response.sendRedirect("product.jsp");
+			response.sendRedirect("product.jsp");		
+		}
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		List<ProductBean> allprodlist = productservice.getAllprodforadmin();
+		
+		if(allprodlist.isEmpty())
+		{
+			response.sendRedirect("Noproduct.jsp");	
+		}
+		else
+		{
+			request.getSession().setAttribute("allprodlist", allprodlist);
+			response.sendRedirect("Admin.jsp");		
 		}
 		
 	}
+	
+	
 
 }

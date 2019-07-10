@@ -12,12 +12,14 @@
 <h1>Registration Form</h1>
 
 	<form class="indexform" action="RegisterServlet" method="post" >
-		<br><br>
-		Enter Username : <input type="text" name="username" required="required"> <br><br>
-		Enter Password : <input type="password" name="password" required="required"><br><br>
-		<input class="btn btn-success btn-lg" type="submit" value="Register">
+		<br><br>		
+<!--  		Enter Username (Email) :  <input type="email" name="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required="required"> <br><br> 
+ --> 		
+ 		Enter Username : <input type="text" name="username" required="required"> <br><br>
+ 		Enter Password : <input type="password" name="password" required="required"><br><br>
+		<input class="btn btn-outline-success btn-lg" type="submit" value="Register">
 					
-		<a href="index.jsp"><input type="button" class="btn btn-info btn-lg" value="Back to Login"></a>
+		<a href="index.jsp"><input type="button" class="btn btn-outline-info btn-lg" value="Back to Login"></a>
 		
 	</form>
 	<br>

@@ -57,14 +57,9 @@
 
 <div style="margin-left: 20px;">
 	
-	<form action="ViewCartServlet" method="post">
-			<input class="btn btn-info btn-lg" type="submit" value="Refresh Cart">
-		</form>
-
 	<h2>My Cart </h2>
 		<table id="tb" border="1" cellpadding="10">
 			<tr>
-				<th>Item Id</th>
 				<th>Item Name</th>
 				<th>Quantity in Cart</th>
 				<th>Total Price of this Item</th>
@@ -74,7 +69,6 @@
 			<c:set var="finaltotal" value="${0}"/>
 			<c:forEach items="${cartlist}" var="i">
 				<tr>
-					<td><c:out value="${i.itemid}" /></td>
 					<td><c:out value="${i.itemname}" /></td>
 					<td><c:out value="${i.itemquantity}" /></td>
 					<td><c:out value="${i.totalprice}" /></td>	

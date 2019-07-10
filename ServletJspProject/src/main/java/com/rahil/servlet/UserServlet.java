@@ -1,6 +1,7 @@
 package com.rahil.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rahil.model.UserBean;
+import com.rahil.model.ProductBean;
+import com.rahil.service.ProductService;
 import com.rahil.service.UserService;
 
 @WebServlet("/UserServlet")
@@ -24,20 +26,30 @@ public class UserServlet extends HttpServlet{
 		
 		UserService userservice = new UserService();
 	
-		if(userservice.getUser(username, password))
+		if(username.equals("admin") && password.equals("admin123"))
 		{
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
-			response.sendRedirect("welcomeUser.jsp");		
+			
+				HttpSession session = request.getSession();
+				session.setAttribute("username", username);
+				response.sendRedirect("welcomeAdmin.jsp");		
+			
 		}
 		else
 		{
-			request.setAttribute("invalidcredentialsmsg", "Invalid Credentials! ");
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-			rd.forward(request, response);
-		
+			if(userservice.getUser(username, password))
+			{
+				HttpSession session = request.getSession();
+				session.setAttribute("username", username);
+				response.sendRedirect("welcomeUser.jsp");		
+			}
+			else
+			{
+				request.setAttribute("invalidcredentialsmsg", "Invalid Credentials! ");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				rd.forward(request, response);
+			
+			}
 		}
-		
 		
 	}
 	
