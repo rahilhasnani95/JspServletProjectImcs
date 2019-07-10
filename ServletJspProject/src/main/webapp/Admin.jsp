@@ -11,7 +11,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<style type="text/css">
+tr
+{
+text-align: center;
+}
+</style>
 </head>
 <body>
 	<%
@@ -28,7 +33,8 @@
 
 <div style="margin-left: 20px;">
 		<h2>List of Products</h2>
-		<table id="tb" border="1" cellpadding="10">
+		<table class="table table-striped" id="tb" border="1" cellpadding="10">
+			<thead class="thead-dark">			
 			<tr style="text-align: center;">
 				<th>Name</th>
 				<th>Quantity In Inventory</th>
@@ -36,6 +42,7 @@
 				<th>Image</th>
 				<th>Update quantity</th>
 			</tr>
+			</thead>
 
 			<c:forEach items="${allprodlist}" var="i">
 				<tr>
@@ -43,7 +50,7 @@
 					<td><c:out value="${i.itemquantity}" /></td>
 					<td><c:out value="${i.itemprice}" /></td>
 
-					<td>
+					<td style="text-align: center;">
 						<form action="viewimage.jsp">
 							<input type="hidden" name="itemid" value="${i.itemid}"> <input
 								type="submit" class="btn btn-outline-dark btn-sm"
@@ -51,13 +58,13 @@
 						</form>
 					</td>
 
-					<td>
-						<form action="AdminServlet" method="post" style="width: 280px;">
+					<td style="text-align: center;">
+						<form action="AdminServlet" method="post">
 							<input type="hidden" name="itemid" value="${i.itemid}"> 
 							<input type="hidden" name="itemprice" value="${i.itemprice}"> 
 							<input type="hidden" name="itemname" value="${i.itemname}"> 
-							<input type="number" name="qty" placeholder="Update quantity" required="required" min="1" max="100" style="width: 45%;"> 
-							<input type="submit" class="btn btn-outline-info btn-sm" value="Update Quantity" style="width: 45%;">
+							<input type="number" name="qty" placeholder="Update quantity" required="required" min="1" max="100" style="width: 30%; margin-right: 15px;"> 
+							<input type="submit" class="btn btn-outline-info btn-sm" value="Update Quantity" style="width: 30%;">
 						</form>
 					</td>
 				</tr>

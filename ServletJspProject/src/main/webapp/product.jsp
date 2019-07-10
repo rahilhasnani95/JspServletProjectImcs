@@ -12,12 +12,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <style type="text/css">
-.btn {
-top: 10px;
-width: 15%;
+<style type="text/css">
+tr
+{
+text-align: center;
 }
-</style> -->
+</style>
 </head>
 <body>
 	<%
@@ -49,11 +49,12 @@ width: 15%;
 </form>
 		
 
-<div style="margin-left: 30px; margin-bottom: 30px;">
+<div style="margin: 30px;">
 	
 		<h2>List of Products</h2>
 		
-		<table id="tb" border="1" cellpadding="10">
+		<table class="table table-striped" id="tb" border="1" cellpadding="10">
+			<thead class="thead-dark">
 			<tr style="text-align: center;">
 				<th>Name</th>
 				<th>Quantity In Stock</th>
@@ -61,6 +62,7 @@ width: 15%;
 				<th>Image</th>
 				<th>Enter quantity to buy</th>
 			</tr>
+			</thead>
 
 			<c:forEach items="${productlist}" var="i">
 				<tr>
@@ -68,7 +70,7 @@ width: 15%;
 					<td><c:out value="${i.itemquantity}" /></td>
 					<td><c:out value="${i.itemprice}" /></td>
 
-					<td>
+					<td style="text-align: center;">
 						<form action="viewimage.jsp">
 							<input type="hidden" name="itemid" value="${i.itemid}"> <input
 								type="submit" class="btn btn-outline-dark btn-sm"
@@ -76,16 +78,16 @@ width: 15%;
 						</form>
 					</td>
 
-					<td>
-						<form action="CartServlet" method="post" style="width: 280px;">
+					<td style="text-align: center;">
+						<form action="CartServlet" method="post">
 							<input type="hidden" name="itemid" value="${i.itemid}"> <input
 								type="hidden" name="itemprice" value="${i.itemprice}"> <input
 								type="hidden" name="itemname" value="${i.itemname}"> <input
 								type="number" name="qty" placeholder="Enter quantity"
 								required="required" min="1" max="${i.itemquantity}"
-								style="width: 45%;"> <input type="submit"
+								style="width: 35%;"> <input type="submit"
 								class="btn btn-outline-info btn-sm" value="Add to Cart"
-								style="width: 45%;">
+								style="width: 35%;">
 						</form>
 					</td>
 				</tr>

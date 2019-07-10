@@ -11,6 +11,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style type="text/css">
+tr
+{
+text-align: center;
+}
 </style>
 </head>
 <body>
@@ -55,16 +59,18 @@
 </c:if>
 <br>
 
-<div style="margin-left: 20px;">
+<div style="margin: 20px;">
 	
 	<h2>My Cart </h2>
-		<table id="tb" border="1" cellpadding="10">
+		<table class="table table-striped" id="tb" border="1" cellpadding="10">
+			<thead class="thead-dark">			
 			<tr>
 				<th>Item Name</th>
 				<th>Quantity in Cart</th>
 				<th>Total Price of this Item</th>
 				<th>Delete Item</th>
 			</tr>
+			</thead>
 			
 			<c:set var="finaltotal" value="${0}"/>
 			<c:forEach items="${cartlist}" var="i">
@@ -74,11 +80,11 @@
 					<td><c:out value="${i.totalprice}" /></td>	
 					<c:set var="finaltotal" value="${finaltotal + i.totalprice}" />
 					
-					 <td>
+					 <td style="text-align: center;">
 			 		<form action="DeleteServlet" method="post">
 						<input type="hidden" name="itemid" value="${i.itemid}">
 						<input type="hidden" name="itemname" value="${i.itemname}">	
-						<input type="submit" class="btn btn-outline-danger btn-sm" value="Remove Item" style="width: 100%;" >					
+						<input type="submit" class="btn btn-outline-danger btn-sm" value="Remove Item" style="width: 40%;" >					
 					</form>
 					</td>	
 						
