@@ -3,6 +3,10 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+<!-- <session-config> it is used to logout after 1 min automatically if there is no request
+        <session-timeout>1</session-timeout>
+    </session-config>
+     -->
 	<!-- <servlet>
 		<servlet-name>AdminServlet</servlet-name>
 		<display-name>AdminServlet</display-name>
